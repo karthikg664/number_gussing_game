@@ -2,6 +2,10 @@
 
 This is a simple number guessing game written in Python. The computer generates a random number between 1 and 100, and the player has a limited number of attempts to guess it. The game offers three difficulty levels: Easy, Medium, and Hard.
 
+## Project Repository
+
+Sample solution for the [number-guessing-game](https://github.com/karthikg664/number_gussing_game) challenge from [roadmap.sh](https://roadmap.sh).
+
 ## How to Play
 
 1.  **Run the script:** Execute the Python script.
