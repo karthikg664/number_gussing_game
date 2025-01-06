@@ -4,7 +4,7 @@ This is a simple number guessing game written in Python. The computer generates 
 
 ## Project Repository
 
-Sample solution for the [number-guessing-game](https://github.com/karthikg664/number_gussing_game) challenge from [roadmap.sh](https://roadmap.sh).
+Sample solution for the [number-guessing-game](https://github.com/karthikg664/number_gussing_game) challenge from [roadmap.sh](https://roadmap.sh/projects/number-guessing-game).
 
 ## How to Play
 
