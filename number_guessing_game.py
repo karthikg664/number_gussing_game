@@ -1,61 +1,60 @@
-round='y'
 import random
-while(round=='y'):
-    number=random.randint(1,100)
-    attempt=0
+
+def greetings():
     print("Welcome to the Number Guessing Game!")
-    print("I'm thinking of a number between 1 and 100.")
-    print("You have 5 chances to guess the correct number.\n")
+    print("I'm thinking of a number between 1 and 100.\n")
+
+
+def level():
     print("Please select the difficulty level:")
     print("1. Easy (10 chances)")
     print("2. Medium (5 chances)")
     print("3. Hard (3 chances)\n")
-    choice=int(input("Enter your choice: "))
-    if(choice==1):
-        print("\nGreat! You have selected the Easy difficulty level.")
-        print("Let's start the game!")
-        while(attempt<=9):
-            guess=int(input("Enter your guess: "))
-            if(guess==number):
-                print("Congratulations! You guessed the correct number in ",attempt," attempts.")
-                break
-            elif(guess>number):
-                print("Incorrect! The number is less than", guess)
+    
+    while True:
+        try:
+            choice=int(input("Enter your choice: "))
+            if choice==1:
+                lvl='Easy'
+                chance=10
+            elif choice==2:
+                lvl='Medium'
+                chance=5
             else:
-                print("Incorrect! The number is greater than", guess)
-            attempt+=1
+                lvl='Hard'
+                chance=3
 
-            
-    elif(choice==2):
-        print("\nGreat! You have selected the Medium difficulty level.")
-        print("Let's start the game!")
-        while(attempt<=4):
+            print(f"Great! You have selected the {lvl} difficulty level.")
+            print("Let's start the game!\n")
+
+            return chance
+        except ValueError:
+            print("Invalid input! Please enter a number (1, 2, or 3).")
+        
+
+def game(chance):
+    num=random.randint(1,100)
+    attempt=1
+    while(attempt<chance):
             guess=int(input("Enter your guess: "))
-            if(guess==number):
-                print("Congratulations! You guessed the correct number in ",attempt," attempts.")
+            if(guess==num):
+                print(f"Congratulations! You guessed the correct number in {attempt} attempts.")
                 break
-            elif(guess>number):
-                print("Incorrect! The number is less than", guess)
+            elif(guess>num):
+                print(f"Incorrect! The number is less than {guess}")
             else:
-                print("Incorrect! The number is greater than", guess)
+                print(f"Incorrect! The number is greater than {guess}")
             attempt+=1
-
-
-    else:
-        print("\nGreat! You have selected the Hard difficulty level.")
-        print("Let's start the game!")
-        while(attempt<=2):
-            guess=int(input("Enter your guess: "))
-            if(guess==number):
-                print("Congratulations! You guessed the correct number in ",attempt," attempts.")
-                break
-            elif(guess>number):
-                print("Incorrect! The number is less than", guess)
-            else:
-                print("Incorrect! The number is greater than", guess)
-            attempt+=1
-    if(attempt==10 or attempt==5 or attempt==3 ):
-
+    if(attempt==chance ):
         print("You used all your chances! Better luck next time")
-        print("The numbeer is ",number)
-    round=input("Do you want to play again (y/n):")
+        print(f"The number is {num}")
+
+
+if __name__=="__main__":
+    turn='y'
+    while(round=='y'):
+        greetings()
+        chance=level()
+        game(chance)
+        turn=input("Do you want to play again (y/n): ")
+    
